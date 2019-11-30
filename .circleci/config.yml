@@ -5,7 +5,7 @@ parameters:
   app_version:
     type: string
     #BE CAREFUL TO USE SPCE RATHER THAN TAB HERE!!!!
-    default: "1.0.2" #app_version
+    default: "1.0.3" #app_version
 
   params_file:
     type: string
@@ -125,7 +125,7 @@ jobs:
           name: Sonar Scanner Begin
           command: |
             dotnet sonarscanner begin \
-            /key:onix-web-api \
+            /key:its-software-services-onix_onix-webapi-app \
             /o:its-software-services-onix \
             /v:${PACKAGE_VERSION} \
             /d:sonar.host.url=https://sonarcloud.io \
