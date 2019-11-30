@@ -1,0 +1,26 @@
+filebeat.inputs:
+
+- type: log
+
+  # Change to true to enable this input configuration.
+  enabled: true
+
+  # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - D:\dev\logs\*.log
+    - /logs/*.log
+
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+fields:
+  env: ${ONIX_WEB_API_ENVIRONMENT:local}
+  app: onix-web-api
+
+output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["${ONIX_ELASTIC_HOST}"]
+  protocol: "https"
+  username: "${ONIX_ELASTIC_USERNAME}"
+  password: "${ONIX_ELASTIC_PASSWORD}"
