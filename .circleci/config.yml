@@ -119,14 +119,14 @@ jobs:
 
       - run:
           name: Debug Env
-          command: env | grep -E 'ONIX_|MAGNUM_'
+          command: env | grep -E 'ONIX_'
 
       - run:
           name: Sonar Scanner Begin
           command: |
             dotnet sonarscanner begin \
-            /key:pjamenaja_onix_web_api \
-            /o:pjamenaja \
+            /key:onix-web-api\
+            /o:its-software-services-onix \
             /v:${PACKAGE_VERSION} \
             /d:sonar.host.url=https://sonarcloud.io \
             /d:sonar.branch.name=${CIRCLE_BRANCH} \
@@ -140,18 +140,18 @@ jobs:
           name: Sonar Analyse
           command: dotnet build OnixWebApi.sln
 
-      - run:
-          name: Coverlet
-          command: |
-            coverlet './OnixWebApiTest/bin/Debug/netcoreapp3.0/OnixWebApiTest.dll' \
-            --target 'dotnet' --targetargs 'test . --no-build' --format opencover
+      #- run:
+      #    name: Coverlet
+      #    command: |
+      #      coverlet './OnixWebApiTest/bin/Debug/netcoreapp3.0/OnixWebApiTest.dll' \
+      #      --target 'dotnet' --targetargs 'test . --no-build' --format opencover
 
-            if [ "$?" -ne "0" ]; then
-              echo "Exit code from coverlet is not zero but ignore it for now!!!!"              
-              exit 0
-            fi
+      #      if [ "$?" -ne "0" ]; then
+      #        echo "Exit code from coverlet is not zero but ignore it for now!!!!"              
+      #        exit 0
+      #      fi
 
-            exit 0
+      #      exit 0
 
       - run:
           name: Sonar Scanner End
