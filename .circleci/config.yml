@@ -125,7 +125,7 @@ jobs:
           name: Sonar Scanner Begin
           command: |
             dotnet sonarscanner begin \
-            /key:onix-web-api\
+            /key:onix-web-api \
             /o:its-software-services-onix \
             /v:${PACKAGE_VERSION} \
             /d:sonar.host.url=https://sonarcloud.io \
