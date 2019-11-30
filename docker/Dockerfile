@@ -8,7 +8,7 @@ EXPOSE 443
 
 COPY OnixWebApi.sln ./publish/
 COPY OnixWebApi/. ./publish/OnixWebApi
-#COPY OnixWebApiTest/. ./publish/OnixWebApiTest
+COPY OnixWebApiTest/. ./publish/OnixWebApiTest
 
 WORKDIR /app/publish
 
