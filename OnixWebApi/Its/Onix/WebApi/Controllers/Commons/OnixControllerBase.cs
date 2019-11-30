@@ -8,15 +8,12 @@ namespace Its.Onix.WebApi.Controllers.Commons
 {
     public class OnixControllerBase : ControllerBase
     {
-        private readonly BaseDbContext dbContext = null;
-        private readonly string apiName = "";
+        private readonly string apiName;
 
         public OnixControllerBase(BaseDbContext ctx, string api)
         {
             apiName = api;
-            dbContext = ctx;
-
-            FactoryBusinessOperation.SetDatabaseContext(dbContext);
+            FactoryBusinessOperation.SetDatabaseContext(ctx);
         }
 
         [HttpGet]
