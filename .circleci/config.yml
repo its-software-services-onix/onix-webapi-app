@@ -140,18 +140,16 @@ jobs:
           name: Sonar Analyse
           command: dotnet build OnixWebApi.sln
 
-      #- run:
-      #    name: Coverlet
-      #    command: |
-      #      coverlet './OnixWebApiTest/bin/Debug/netcoreapp3.0/OnixWebApiTest.dll' \
-      #      --target 'dotnet' --targetargs 'test . --no-build' --format opencover
+      - run:
+          name: Coverlet
+          command: |
+            coverlet './OnixWebApiTest/bin/Debug/netcoreapp3.0/OnixWebApiTest.dll' \
+            --target 'dotnet' --targetargs 'test . --no-build' --format opencover
 
-      #      if [ "$?" -ne "0" ]; then
-      #        echo "Exit code from coverlet is not zero but ignore it for now!!!!"              
-      #        exit 0
-      #      fi
-
-      #      exit 0
+            if [ "$?" -ne "0" ]; then
+              echo "Exit code from coverlet is not zero but ignore it for now!!!!"              
+              exit 1
+            fi
 
       - run:
           name: Sonar Scanner End
