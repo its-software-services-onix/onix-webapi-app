@@ -33,7 +33,6 @@ RUN rm filebeat-7.3.0-amd64.deb
 COPY --from=build /app/publish/out ./
 COPY docker/filebeat.yml /etc/filebeat/filebeat.yml
 COPY docker/supervisor.conf /etc/supervisor.conf
-COPY configs/. ./configs/
 
 RUN mkdir -p /logs
 
