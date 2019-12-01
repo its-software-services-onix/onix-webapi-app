@@ -9,6 +9,8 @@ using Its.Onix.Core.Databases;
 using Its.Onix.Core.Factories;
 using Its.Onix.Erp.Databases;
 using Its.Onix.Erp.Services;
+using Its.Onix.WebApi.Formatters;
+
 using Newtonsoft.Json;
 
 namespace Its.Onix.WebApi
@@ -54,6 +56,8 @@ namespace Its.Onix.WebApi
             {
                 options.SerializerSettings.Formatting = Formatting.Indented;
             });
+
+            services.AddMvc(o => o.InputFormatters.Insert(0, new RawRequestBodyFormatter()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

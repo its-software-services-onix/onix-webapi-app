@@ -7,6 +7,8 @@ using Its.Onix.Core.Databases;
 using Its.Onix.Core.Commons.Model;
 using Its.Onix.Erp.Businesses.Commons;
 
+using Newtonsoft.Json;
+
 namespace Its.Onix.WebApi.Controllers.Commons
 {
     public class OnixControllerBase : ControllerBase
@@ -31,11 +33,15 @@ namespace Its.Onix.WebApi.Controllers.Commons
         }
 
         [HttpGet]
-        public virtual JsonResult Get()
+        public virtual JsonResult Get([FromBody] string content)
         {
             var opr = (GetListOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
-            QueryRequestParam qrp = new QueryRequestParam();
+            var qrp = new QueryRequestParam();
+            if (!String.IsNullOrEmpty(content))
+            {
+                qrp = (QueryRequestParam) JsonConvert.DeserializeObject<QueryRequestParam>(content);
+            }
             var response = opr.Apply(qrp);
 
             var result = new JsonResult(response);
