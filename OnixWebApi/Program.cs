@@ -8,7 +8,7 @@ namespace Its.Onix.WebApi
     public static class Program
     {
         private static int portNum = 5001;
-        private static string listenUrl = "https://localhost:{0}";
+        private static string listenUrl = "https://{0}:{1}";
 
         public static void Main(string[] args)
         {
@@ -31,7 +31,7 @@ namespace Its.Onix.WebApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls(String.Format(listenUrl, portNum));
+                    webBuilder.UseUrls(String.Format(listenUrl, "0.0.0.0", portNum));
                 });
     }
 }
