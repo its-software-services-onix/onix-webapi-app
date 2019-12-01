@@ -36,4 +36,4 @@ COPY docker/supervisor.conf /etc/supervisor.conf
 
 RUN mkdir -p /logs
 
-CMD ["supervisord", "-c", "/etc/supervisor.conf"]
+#CMD ["supervisord", "-c", "/etc/supervisor.conf"]
