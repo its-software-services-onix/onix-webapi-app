@@ -8,7 +8,7 @@ namespace Its.Onix.WebApi
     public static class Program
     {
         private static int portNum = 5001;
-        private static string listenUrl = "https://{0}:{1}";
+        private static string listenUrl = "http://{0}:{1}";
 
         public static void Main(string[] args)
         {
