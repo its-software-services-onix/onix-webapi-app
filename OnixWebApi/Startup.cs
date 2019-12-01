@@ -25,8 +25,7 @@ namespace Its.Onix.WebApi
             {
                 builder
                     .AddFilter("Its", LogLevel.Warning)
-                    .AddConsole()
-                    .AddEventLog();
+                    .AddConsole();
             });
 
             string host = Environment.GetEnvironmentVariable("ONIX_ERP_DB_HOST");
