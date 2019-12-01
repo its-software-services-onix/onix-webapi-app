@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 using Its.Onix.Core.Databases;
@@ -26,8 +25,7 @@ namespace Its.Onix.WebApi
             {
                 builder
                     .AddFilter("Its", LogLevel.Warning)
-                    .AddConsole()
-                    .AddEventLog();
+                    .AddConsole();
             });
 
             string host = Environment.GetEnvironmentVariable("ONIX_ERP_DB_HOST");
@@ -61,11 +59,6 @@ namespace Its.Onix.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();

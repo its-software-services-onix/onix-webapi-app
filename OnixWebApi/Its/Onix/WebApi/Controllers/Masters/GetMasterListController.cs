@@ -4,9 +4,10 @@ using Its.Onix.WebApi.Controllers.Commons;
 
 namespace Its.Onix.WebApi.Controllers.Masters
 {
-    //https://localhost:5001/Master/GetMasterList
+    //http://localhost:5001/Master/GetMasterList
+    
     [ApiController]
-    [Route("Master/[controller]")]
+    [Route("api/Master/[controller]")]
     public class GetMasterListController : OnixControllerBase
     {
         public GetMasterListController(BaseDbContext ctx) : base(ctx, "GetMasterList")

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnixWebApi", "OnixWebApi\OnixWebApi.csproj", "{492F37CC-5034-4B43-A2C1-62781E0234D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnixWebApiTest", "OnixWebApiTest\OnixWebApiTest.csproj", "{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{492F37CC-5034-4B43-A2C1-62781E0234D6}.Release|x64.Build.0 = Release|Any CPU
 		{492F37CC-5034-4B43-A2C1-62781E0234D6}.Release|x86.ActiveCfg = Release|Any CPU
 		{492F37CC-5034-4B43-A2C1-62781E0234D6}.Release|x86.Build.0 = Release|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Debug|x64.Build.0 = Debug|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Debug|x86.Build.0 = Debug|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Release|x64.ActiveCfg = Release|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Release|x64.Build.0 = Release|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Release|x86.ActiveCfg = Release|Any CPU
+		{3B7404F7-C89E-4CF2-AEFF-9880A3C77622}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
