@@ -7,6 +7,8 @@ using Its.Onix.Core.Databases;
 using Its.Onix.Core.Commons.Model;
 using Its.Onix.Erp.Businesses.Commons;
 
+using Newtonsoft.Json;
+
 namespace Its.Onix.WebApi.Controllers.Commons
 {
     public class OnixControllerBase : ControllerBase
@@ -30,12 +32,30 @@ namespace Its.Onix.WebApi.Controllers.Commons
             FactoryBusinessOperation.SetDatabaseContext(ctx);
         }
 
+        private BaseModel GetModel(int? id, string content)
+        {
+            BaseModel m = (BaseModel) Activator.CreateInstance(modelType);
+            if (!String.IsNullOrEmpty(content))
+            {
+                m = (BaseModel) JsonConvert.DeserializeObject(content, modelType);
+            }
+            
+            PropertyInfo propInfo = modelType.GetProperty(pkName);
+            propInfo.SetValue(m, id, null);
+
+            return m;
+        }        
+
         [HttpGet]
-        public virtual JsonResult Get()
+        public virtual JsonResult Get([FromBody] string content)
         {
             var opr = (GetListOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
-            QueryRequestParam qrp = new QueryRequestParam();
+            var qrp = new QueryRequestParam();
+            if (!String.IsNullOrEmpty(content))
+            {
+                qrp = (QueryRequestParam) JsonConvert.DeserializeObject<QueryRequestParam>(content);
+            }
             var response = opr.Apply(qrp);
 
             var result = new JsonResult(response);
@@ -43,19 +63,51 @@ namespace Its.Onix.WebApi.Controllers.Commons
         }
 
         [HttpGet("{id}")]
-        public virtual JsonResult Get(string pk, int id)
+        public virtual JsonResult GetInfo(int id)
         {
             var opr = (GetInfoOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
-            BaseModel m = (BaseModel) Activator.CreateInstance(modelType);
-
-            PropertyInfo propInfo = modelType.GetProperty(pkName);
-            propInfo.SetValue(m, id, null);
-
+            BaseModel m = GetModel(id, "");
             var response = opr.Apply(m);
-
             var result = new JsonResult(response);
+
             return result;
         }
+
+        [HttpDelete("{id}")]
+        public virtual JsonResult Delete(int id)
+        {
+            var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
+
+            BaseModel m = GetModel(id, "");
+            var response = opr.Apply(m);
+            var result = new JsonResult(response);
+
+            return result;
+        }
+
+        [HttpPost]
+        public virtual JsonResult Create([FromBody] string content)
+        {
+            var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
+
+            BaseModel m = GetModel(null, content);
+            var response = opr.Apply(m);
+            var result = new JsonResult(response);
+
+            return result;
+        }    
+
+        [HttpPut("{id}")]
+        public virtual JsonResult Update([FromBody] string content, int id)
+        {
+            var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
+
+            BaseModel m = GetModel(id, content);
+            var response = opr.Apply(m);
+            var result = new JsonResult(response);
+
+            return result;
+        }                        
     }   
 }

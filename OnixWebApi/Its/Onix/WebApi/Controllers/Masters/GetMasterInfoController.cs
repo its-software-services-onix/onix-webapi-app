@@ -5,8 +5,6 @@ using Its.Onix.Erp.Models;
 
 namespace Its.Onix.WebApi.Controllers.Masters
 {
-    //http://localhost:5001/Master/GetMasterInfo/{id}
-    
     [ApiController]
     [Route("api/Master/[controller]")]
     public class GetMasterInfoController : OnixControllerBase
