@@ -21,7 +21,8 @@ namespace Its.Onix.WebApi.Formatters
             }
 
             var contentType = context.HttpContext.Request.ContentType;
-            bool canRead = string.IsNullOrEmpty(contentType) || contentType == "text/plain";
+            bool canRead = string.IsNullOrEmpty(contentType) || contentType == "application/json"
+                || contentType == "text/plain";
 
             return canRead;
         }
@@ -32,7 +33,7 @@ namespace Its.Onix.WebApi.Formatters
             var contentType = context.HttpContext.Request.ContentType;
 
 
-            if (string.IsNullOrEmpty(contentType) || contentType == "text/plain")
+            if (string.IsNullOrEmpty(contentType) || contentType == "application/json" || contentType == "text/plain")
             {
                 using (var reader = new StreamReader(request.Body))
                 {

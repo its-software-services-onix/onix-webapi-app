@@ -54,7 +54,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
             var qrp = new QueryRequestParam();
             if (!String.IsNullOrEmpty(content))
             {
-                qrp = (QueryRequestParam) JsonConvert.DeserializeObject<QueryRequestParam>(content);
+                qrp = JsonConvert.DeserializeObject<QueryRequestParam>(content);
             }
             var response = opr.Apply(qrp);
 
