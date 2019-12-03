@@ -47,7 +47,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
         }        
 
         [HttpGet]
-        public virtual JsonResult Get([FromBody] string content)
+        public virtual JsonResult Get([FromBody] string content = null)
         {
             var opr = (GetListOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
@@ -87,7 +87,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
         }
 
         [HttpPost]
-        public virtual JsonResult Create([FromBody] string content)
+        public virtual JsonResult Create([FromBody] string content = null)
         {
             var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
@@ -99,7 +99,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
         }    
 
         [HttpPut("{id}")]
-        public virtual JsonResult Update([FromBody] string content, int id)
+        public virtual JsonResult Update(int id, [FromBody] string content = null)
         {
             var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
