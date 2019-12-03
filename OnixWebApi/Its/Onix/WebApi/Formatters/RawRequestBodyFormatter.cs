@@ -10,7 +10,8 @@ namespace Its.Onix.WebApi.Formatters
     {
         public RawRequestBodyFormatter()
         {
-            SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/plain"));                
+            SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/plain")); 
+            SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));                 
         }
 
         public override bool CanRead(InputFormatterContext context)
