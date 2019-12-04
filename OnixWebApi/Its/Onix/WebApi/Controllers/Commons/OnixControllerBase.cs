@@ -97,7 +97,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
 
             return result;
         }
-
+/*
         [HttpPost]
         public virtual JsonResult Create([FromBody] string content = null)
         {
@@ -120,6 +120,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
             var result = new JsonResult(response);
 
             return result;
-        }                        
+        }           
+*/                     
     }   
 }
