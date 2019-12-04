@@ -39,8 +39,6 @@ namespace Its.Onix.WebApi.Formatters
                 using (var reader = new StreamReader(request.Body))
                 {
                     var content = await reader.ReadToEndAsync();
-                    reader.Close();
-                    request.Body.Close();
                     return await InputFormatterResult.SuccessAsync(content);
                 }
             }
