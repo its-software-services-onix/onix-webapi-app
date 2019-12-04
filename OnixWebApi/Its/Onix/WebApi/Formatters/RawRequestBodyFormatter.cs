@@ -40,6 +40,7 @@ namespace Its.Onix.WebApi.Formatters
                 {
                     var content = await reader.ReadToEndAsync();
                     reader.Close();
+                    request.Body.Close();
                     return await InputFormatterResult.SuccessAsync(content);
                 }
             }
