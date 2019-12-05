@@ -62,16 +62,30 @@ namespace Its.Onix.WebApi.Controllers.Commons
         [HttpPost]
         //Use POST method with the Get* operations with parameters to prevent the issue when deploy to Google Cloud Run
         //This is an example of issue - HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
-        public virtual JsonResult GetWithParam([FromForm] QueryParamForm prm = null)
+        public virtual JsonResult GetOrCreateWithParam([FromForm] FormSubmitParam prm = null)
         {
-            var opr = (GetListOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
+            object response = null;
 
-            var qrp = new QueryRequestParam();
+            string content = "";
             if ((prm != null) && (!String.IsNullOrEmpty(prm.JsonContent)))
             {
-                qrp = JsonConvert.DeserializeObject<QueryRequestParam>(prm.JsonContent);
+                content = prm.JsonContent;
             }
-            var response = opr.Apply(qrp);
+
+            var opr = FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
+
+            if (opr is GetListOperation)
+            {
+                var qrp = new QueryRequestParam();
+                qrp = JsonConvert.DeserializeObject<QueryRequestParam>(content);
+                response = (opr as GetListOperation).Apply(qrp);
+            }
+            else
+            {
+                //Manipulation here
+                BaseModel m = GetModel(null, content);
+                response = (opr as ManipulationOperation).Apply(m);
+            }
 
             var result = new JsonResult(response);
             return result;
@@ -100,24 +114,17 @@ namespace Its.Onix.WebApi.Controllers.Commons
 
             return result;
         }
-/*
-        [HttpPost]
-        public virtual JsonResult Create([FromBody] string content = null)
-        {
-            var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
-            BaseModel m = GetModel(null, content);
-            var response = opr.Apply(m);
-            var result = new JsonResult(response);
-
-            return result;
-        }    
-*/
         [HttpPut("{id}")]
-        public virtual JsonResult Update(int id, [FromBody] string content = null)
+        public virtual JsonResult Update(int id, [FromForm] FormSubmitParam prm = null)
         {
             var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
+            string content = "";
+            if ((prm != null) && (!String.IsNullOrEmpty(prm.JsonContent)))
+            {
+                content = prm.JsonContent;
+            }
             BaseModel m = GetModel(id, content);
             var response = opr.Apply(m);
             var result = new JsonResult(response);

@@ -9,7 +9,6 @@ using Its.Onix.Core.Databases;
 using Its.Onix.Core.Factories;
 using Its.Onix.Erp.Databases;
 using Its.Onix.Erp.Services;
-using Its.Onix.WebApi.Formatters;
 
 using Newtonsoft.Json;
 
