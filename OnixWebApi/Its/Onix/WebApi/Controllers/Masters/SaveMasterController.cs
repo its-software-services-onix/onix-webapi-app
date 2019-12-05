@@ -7,7 +7,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
 {
     [ApiController]
     [Route("api/Master/[controller]")]
-    public class SaveMasterController : OnixControllerBase
+    public class SaveMasterController : OnixSaveController
     {
         public SaveMasterController(BaseDbContext ctx) : base(ctx, "SaveMaster", "MasterId", typeof(Master))
         {

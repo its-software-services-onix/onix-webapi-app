@@ -7,7 +7,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
 {
     [ApiController]
     [Route("api/Master/[controller]")]
-    public class DeleteMasterController : OnixControllerBase
+    public class DeleteMasterController : OnixDeleteController
     {
         public DeleteMasterController(BaseDbContext ctx) : base(ctx, "DeleteMaster", "MasterId", typeof(Master))
         {
