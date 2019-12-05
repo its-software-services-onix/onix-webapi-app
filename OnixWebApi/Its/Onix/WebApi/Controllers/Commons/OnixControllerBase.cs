@@ -45,7 +45,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
 
             return m;
         }        
-
+/*
         [HttpGet]
         public virtual JsonResult Get()
         {
@@ -57,9 +57,9 @@ namespace Its.Onix.WebApi.Controllers.Commons
             var result = new JsonResult(response);
             return result;
         }
-/*
+*/
         [HttpGet]
-        public virtual JsonResult Get([FromBody] string content = null)
+        public virtual JsonResult Get([FromForm] string content = null)
         {
             var opr = (GetListOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
@@ -73,7 +73,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
             var result = new JsonResult(response);
             return result;
         }
-*/
+
         [HttpGet("{id}")]
         public virtual JsonResult GetInfo(int id)
         {
