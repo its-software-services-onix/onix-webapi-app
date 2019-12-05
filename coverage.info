@@ -56,22 +56,22 @@ DA:54,0
 DA:55,0
 DA:56,0
 DA:57,0
-DA:60,0
+DA:58,0
 BRDA:53,32,0,0
 BRDA:53,32,1,0
-FN:63,System.Void Its.Onix.WebApi.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
+FN:61,System.Void Its.Onix.WebApi.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
 FNDA:0,System.Void Its.Onix.WebApi.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
-DA:64,0
+DA:62,0
+DA:63,0
 DA:65,0
 DA:67,0
 DA:69,0
+DA:70,0
 DA:71,0
 DA:72,0
 DA:73,0
-DA:74,0
-DA:75,0
-BRDA:71,29,0,0
-BRDA:71,29,1,0
+BRDA:69,29,0,0
+BRDA:69,29,1,0
 FN:18,System.Void Its.Onix.WebApi.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
 FNDA:0,System.Void Its.Onix.WebApi.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
 DA:19,0
@@ -103,21 +103,21 @@ FNH:0
 end_of_record
 SF:D:\dev\projects\its_workspace\onix-webapi-app\OnixWebApi\Its\Onix\WebApi\Forms\FormSubmitParam.cs
 FN:4,System.String Its.Onix.WebApi.Forms.FormSubmitParam::get_JsonContent()
-FNDA:0,System.String Its.Onix.WebApi.Forms.FormSubmitParam::get_JsonContent()
-DA:5,0
+FNDA:3,System.String Its.Onix.WebApi.Forms.FormSubmitParam::get_JsonContent()
+DA:5,3
 LF:1
-LH:0
+LH:1
 BRF:0
 BRH:0
 FNF:1
-FNH:0
+FNH:1
 end_of_record
 SF:D:\dev\projects\its_workspace\onix-webapi-app\OnixWebApi\Its\Onix\WebApi\Controllers\Masters\DeleteMasterController.cs
 FN:11,System.Void Its.Onix.WebApi.Controllers.Masters.DeleteMasterController::.ctor(Its.Onix.Core.Databases.BaseDbContext)
-FNDA:3,System.Void Its.Onix.WebApi.Controllers.Masters.DeleteMasterController::.ctor(Its.Onix.Core.Databases.BaseDbContext)
-DA:12,3
-DA:13,3
-DA:14,3
+FNDA:4,System.Void Its.Onix.WebApi.Controllers.Masters.DeleteMasterController::.ctor(Its.Onix.Core.Databases.BaseDbContext)
+DA:12,4
+DA:13,4
+DA:14,4
 LF:3
 LH:3
 BRF:0
@@ -153,70 +153,91 @@ FNH:0
 end_of_record
 SF:D:\dev\projects\its_workspace\onix-webapi-app\OnixWebApi\Its\Onix\WebApi\Controllers\Masters\SaveMasterController.cs
 FN:11,System.Void Its.Onix.WebApi.Controllers.Masters.SaveMasterController::.ctor(Its.Onix.Core.Databases.BaseDbContext)
-FNDA:0,System.Void Its.Onix.WebApi.Controllers.Masters.SaveMasterController::.ctor(Its.Onix.Core.Databases.BaseDbContext)
-DA:12,0
-DA:13,0
-DA:14,0
+FNDA:1,System.Void Its.Onix.WebApi.Controllers.Masters.SaveMasterController::.ctor(Its.Onix.Core.Databases.BaseDbContext)
+DA:12,1
+DA:13,1
+DA:14,1
 LF:3
-LH:0
+LH:3
 BRF:0
 BRH:0
 FNF:1
-FNH:0
+FNH:1
 end_of_record
 SF:D:\dev\projects\its_workspace\onix-webapi-app\OnixWebApi\Its\Onix\WebApi\Controllers\Commons\OnixControllerBase.cs
-FN:21,System.String Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_ApiName()
-FNDA:3,System.String Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_ApiName()
-DA:22,3
-DA:23,3
-DA:24,3
-FN:36,Its.Onix.Core.Commons.Model.BaseModel Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::GetModel(System.Nullable`1<System.Int32>,System.String)
-FNDA:0,Its.Onix.Core.Commons.Model.BaseModel Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::GetModel(System.Nullable`1<System.Int32>,System.String)
-DA:37,0
-DA:38,0
-DA:39,0
-DA:40,0
-DA:41,0
-DA:42,0
-DA:44,0
-DA:45,0
-DA:47,0
-DA:48,0
-BRDA:39,29,0,0
-BRDA:39,29,1,0
-FN:26,System.Void Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
-FNDA:3,System.Void Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
-DA:27,3
-DA:28,3
-DA:29,3
-DA:30,3
-DA:32,3
-DA:33,3
-DA:34,3
-LF:20
-LH:10
-BRF:2
-BRH:0
-FNF:3
-FNH:2
+FN:23,System.String Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_ApiName()
+FNDA:5,System.String Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_ApiName()
+DA:24,5
+DA:25,5
+DA:26,5
+FN:31,System.Type Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_ModelType()
+FNDA:1,System.Type Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_ModelType()
+DA:32,1
+DA:33,1
+DA:34,1
+FN:39,System.String Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_PkFieldName()
+FNDA:2,System.String Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::get_PkFieldName()
+DA:40,2
+DA:41,2
+DA:42,2
+FN:45,System.Void Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::SetModel(Its.Onix.Core.Commons.Model.BaseModel)
+FNDA:1,System.Void Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::SetModel(Its.Onix.Core.Commons.Model.BaseModel)
+DA:46,1
+DA:47,1
+DA:48,1
+FN:59,Its.Onix.Core.Commons.Model.BaseModel Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::GetModel(System.Nullable`1<System.Int32>,System.String)
+FNDA:5,Its.Onix.Core.Commons.Model.BaseModel Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::GetModel(System.Nullable`1<System.Int32>,System.String)
+DA:60,5
+DA:61,5
+DA:62,1
+DA:63,1
+DA:66,4
+DA:67,4
+DA:68,1
+DA:69,1
+DA:70,1
+DA:72,4
+DA:73,4
+DA:75,4
+DA:76,5
+BRDA:61,12,0,1
+BRDA:61,12,1,4
+BRDA:67,54,0,1
+BRDA:67,54,1,4
+FN:14,System.Void Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
+FNDA:5,System.Void Its.Onix.WebApi.Controllers.Commons.OnixControllerBase::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
+DA:15,5
+DA:50,5
+DA:51,5
+DA:52,5
+DA:53,5
+DA:55,5
+DA:56,5
+DA:57,5
+LF:33
+LH:33
+BRF:4
+BRH:4
+FNF:6
+FNH:6
 end_of_record
 SF:D:\dev\projects\its_workspace\onix-webapi-app\OnixWebApi\Its\Onix\WebApi\Controllers\Commons\OnixDeleteController.cs
 FN:17,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixDeleteController::Delete(System.Int32)
-FNDA:3,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixDeleteController::Delete(System.Int32)
-DA:18,3
-DA:19,3
-DA:21,0
-DA:22,0
-DA:23,0
-DA:25,0
-DA:26,0
+FNDA:4,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixDeleteController::Delete(System.Int32)
+DA:18,4
+DA:19,4
+DA:21,4
+DA:22,4
+DA:23,1
+DA:25,1
+DA:26,1
 FN:11,System.Void Its.Onix.WebApi.Controllers.Commons.OnixDeleteController::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
-FNDA:3,System.Void Its.Onix.WebApi.Controllers.Commons.OnixDeleteController::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
-DA:12,3
-DA:13,3
-DA:14,3
+FNDA:4,System.Void Its.Onix.WebApi.Controllers.Commons.OnixDeleteController::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
+DA:12,4
+DA:13,4
+DA:14,4
 LF:10
-LH:5
+LH:10
 BRF:0
 BRH:0
 FNF:2
@@ -288,24 +309,24 @@ FNH:0
 end_of_record
 SF:D:\dev\projects\its_workspace\onix-webapi-app\OnixWebApi\Its\Onix\WebApi\Controllers\Commons\OnixSaveController.cs
 FN:20,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixSaveController::CreateWithParam(Its.Onix.WebApi.Forms.FormSubmitParam)
-FNDA:0,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixSaveController::CreateWithParam(Its.Onix.WebApi.Forms.FormSubmitParam)
-DA:21,0
-DA:22,0
-DA:24,0
-DA:25,0
-DA:26,0
-DA:27,0
-DA:28,0
-DA:30,0
-DA:32,0
-DA:33,0
-DA:35,0
-DA:36,0
-DA:37,0
-BRDA:25,10,0,0
+FNDA:1,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixSaveController::CreateWithParam(Its.Onix.WebApi.Forms.FormSubmitParam)
+DA:21,1
+DA:22,1
+DA:24,1
+DA:25,1
+DA:26,1
+DA:27,1
+DA:28,1
+DA:30,1
+DA:32,1
+DA:33,1
+DA:35,1
+DA:36,1
+DA:37,1
+BRDA:25,10,0,1
 BRDA:25,10,1,0
-BRDA:25,33,0,0
-BRDA:25,33,1,0
+BRDA:25,33,0,1
+BRDA:25,33,1,1
 FN:40,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixSaveController::Update(System.Int32,Its.Onix.WebApi.Forms.FormSubmitParam)
 FNDA:0,Microsoft.AspNetCore.Mvc.JsonResult Its.Onix.WebApi.Controllers.Commons.OnixSaveController::Update(System.Int32,Its.Onix.WebApi.Forms.FormSubmitParam)
 DA:41,0
@@ -325,16 +346,16 @@ BRDA:45,25,1,0
 BRDA:45,48,0,0
 BRDA:45,48,1,0
 FN:12,System.Void Its.Onix.WebApi.Controllers.Commons.OnixSaveController::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
-FNDA:0,System.Void Its.Onix.WebApi.Controllers.Commons.OnixSaveController::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
-DA:13,0
-DA:14,0
-DA:15,0
+FNDA:1,System.Void Its.Onix.WebApi.Controllers.Commons.OnixSaveController::.ctor(Its.Onix.Core.Databases.BaseDbContext,System.String,System.String,System.Type)
+DA:13,1
+DA:14,1
+DA:15,1
 LF:28
-LH:0
+LH:16
 BRF:8
-BRH:0
+BRH:3
 FNF:3
-FNH:0
+FNH:2
 end_of_record
 SF:D:\a\1\s\Ix.NET\Source\System.Interactive.Async\TaskExt.cs
 FN:8,System.Void System.Threading.Tasks.TaskExt::.cctor()

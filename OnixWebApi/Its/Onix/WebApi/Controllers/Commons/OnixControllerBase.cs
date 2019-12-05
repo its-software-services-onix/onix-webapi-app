@@ -12,6 +12,8 @@ namespace Its.Onix.WebApi.Controllers.Commons
 {
     public class OnixControllerBase : ControllerBase
     {
+        private BaseModel model = null;
+
         private readonly string apiName;
         private readonly string pkName;
         private readonly Type modelType;
@@ -38,7 +40,12 @@ namespace Its.Onix.WebApi.Controllers.Commons
             {
                 return pkName;
             }
-        }            
+        }
+
+        public void SetModel(BaseModel m)
+        {
+            model = m;
+        }
 
         public OnixControllerBase(BaseDbContext ctx, string api, string pk, Type t)
         {
@@ -49,8 +56,13 @@ namespace Its.Onix.WebApi.Controllers.Commons
             FactoryBusinessOperation.SetDatabaseContext(ctx);
         }
 
-        protected BaseModel GetModel(int? id, string content)
+        public BaseModel GetModel(int? id, string content)
         {
+            if (model != null)
+            {
+                return model;
+            }
+
             BaseModel m = (BaseModel) Activator.CreateInstance(modelType);
             if (!String.IsNullOrEmpty(content))
             {
