@@ -7,7 +7,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
 {
     [ApiController]
     [Route("api/Master/[controller]")]
-    public class GetMasterInfoController : OnixControllerBase
+    public class GetMasterInfoController : OnixGetInfoController
     {
         public GetMasterInfoController(BaseDbContext ctx) : base(ctx, "GetMasterInfo", "MasterId", typeof(Master))
         {
