@@ -16,13 +16,29 @@ namespace Its.Onix.WebApi.Controllers.Commons
         private readonly string pkName;
         private readonly Type modelType;
 
-        protected string ApiName
+        public string ApiName
         {
             get 
             {
                 return apiName;
             }
         }
+
+        public Type ModelType
+        {
+            get 
+            {
+                return modelType;
+            }
+        }     
+
+        public string PkFieldName
+        {
+            get 
+            {
+                return pkName;
+            }
+        }            
 
         public OnixControllerBase(BaseDbContext ctx, string api, string pk, Type t)
         {
