@@ -6,6 +6,7 @@ using Its.Onix.Core.Factories;
 using Its.Onix.Core.Databases;
 using Its.Onix.Core.Commons.Model;
 using Its.Onix.Erp.Businesses.Commons;
+using Its.Onix.WebApi.Forms;
 
 using Newtonsoft.Json;
 
@@ -59,14 +60,14 @@ namespace Its.Onix.WebApi.Controllers.Commons
         }
 */
         [HttpGet]
-        public virtual JsonResult Get([FromForm] string content = null)
+        public virtual JsonResult Get([FromForm] QueryParamForm prm = null)
         {
             var opr = (GetListOperation) FactoryBusinessOperation.CreateBusinessOperationObject(apiName);
 
             var qrp = new QueryRequestParam();
-            if (!String.IsNullOrEmpty(content))
+            if ((prm != null) && (!String.IsNullOrEmpty(prm.JsonContent)))
             {
-                qrp = JsonConvert.DeserializeObject<QueryRequestParam>(content);
+                qrp = JsonConvert.DeserializeObject<QueryRequestParam>(prm.JsonContent);
             }
             var response = opr.Apply(qrp);
 
