@@ -25,7 +25,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
 
         [TestCase(0)]
         [TestCase(-1)]
-        [TestCase(999)]
+        [TestCase(1)]
         public void DeleteMasterWithNotFoundTest(int id)
         {
             try

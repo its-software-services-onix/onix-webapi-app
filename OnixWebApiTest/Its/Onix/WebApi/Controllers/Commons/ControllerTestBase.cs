@@ -23,13 +23,17 @@ namespace Its.Onix.WebApi.Controllers.Commons
         {
         }
 
+        [SetUp]
+        public void Setup()
+        {
+            CreateOnixDbContext();
+        }
+
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
             FactoryBusinessOperation.ClearRegisteredItems();
             FactoryBusinessOperation.RegisterBusinessOperations(BusinessErpOperations.GetInstance().ExportedServicesList());
-
-            CreateOnixDbContext();
         }
         
         [OneTimeTearDown]

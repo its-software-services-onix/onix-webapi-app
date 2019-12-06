@@ -8,11 +8,6 @@ namespace Its.Onix.WebApi.Controllers.Masters
 {
     public class GetMasterInfoControllerTest : GetInfoControllerTest
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-        
         [TestCase]
         public void GetMasterWithFoundTest()
         {
@@ -29,7 +24,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
         [TestCase(0)]
         [TestCase(-1)]
         [TestCase(999)]
-        [TestCase(100)]
+        [TestCase(1)]
         public void MasterDeleteWithNotFoundTest(int id)
         {
             try
