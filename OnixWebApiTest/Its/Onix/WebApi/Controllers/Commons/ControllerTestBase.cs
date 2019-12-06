@@ -1,4 +1,5 @@
 using NUnit.Framework;
+
 using Its.Onix.Erp.Databases;
 using Its.Onix.Core.Databases;
 using Its.Onix.Core.Factories;
@@ -16,8 +17,8 @@ namespace Its.Onix.WebApi.Controllers.Commons
             {
                 return ctx;
             }
-        }
-        
+        }    
+
         public ControllerTestBase()
         {
         }

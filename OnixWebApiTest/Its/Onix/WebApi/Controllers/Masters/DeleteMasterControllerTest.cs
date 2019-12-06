@@ -1,41 +1,21 @@
 using System;
 using NUnit.Framework;
-using Microsoft.AspNetCore.Mvc;
-
 using Its.Onix.WebApi.Controllers.Commons;
-using Its.Onix.WebApi.Forms;
-using Its.Onix.Core.Commons.Model;
-using Its.Onix.WebApi.Utils;
-using Newtonsoft.Json;
 
 namespace Its.Onix.WebApi.Controllers.Masters
 {
-    public class DeleteMasterControllerTest : ControllerTestBase
+    public class DeleteMasterControllerTest : DeleteControllerTest
     {
-        [SetUp]
-        public void Setup()
+        public DeleteMasterControllerTest() : base()
         {
         }
-        
+
         [TestCase]
-        public void MasterDeleteWithFoundTest()
+        public void DeleteMasterWithFoundTest()
         {
             try
             {
-                SaveMasterController createCtrl = new SaveMasterController(Context);
-                FormSubmitParam prm = new FormSubmitParam();
-
-                BaseModel createdObj = (BaseModel) Activator.CreateInstance(createCtrl.ModelType);
-                TestUtils.PopulateDummyPropValues(createdObj, createCtrl.PkFieldName);
-                prm.JsonContent = JsonConvert.SerializeObject(createdObj, Formatting.Indented);
-                
-                JsonResult result = createCtrl.CreateWithParam(prm);
-                createdObj = (BaseModel) result.Value;
-                int newID = (int) TestUtils.GetPropertyValue(createdObj, createCtrl.PkFieldName);
-
-                DeleteMasterController delCtrl = new DeleteMasterController(Context);
-                delCtrl.SetModel(createdObj);
-                delCtrl.Delete(-1); //Not use the ID 
+                DeleteWithFoundTest(new SaveMasterController(Context), new DeleteMasterController(Context));
             }
             catch (Exception e)
             {
@@ -46,12 +26,11 @@ namespace Its.Onix.WebApi.Controllers.Masters
         [TestCase(0)]
         [TestCase(-1)]
         [TestCase(999)]
-        public void MasterDeleteWithNotFoundTest(int id)
+        public void DeleteMasterWithNotFoundTest(int id)
         {
             try
             {
-                DeleteMasterController delCtrl = new DeleteMasterController(Context);
-                delCtrl.Delete(id);
+                DeleteWithNotFoundTest(id, new DeleteMasterController(Context));
                 Assert.Fail("Exception should be thrown due to no data to delete!!!");
             }
             catch (Exception e)

@@ -1,16 +1,12 @@
 using System;
 using NUnit.Framework;
-using Microsoft.AspNetCore.Mvc;
 
 using Its.Onix.WebApi.Controllers.Commons;
-using Its.Onix.WebApi.Forms;
 using Its.Onix.Core.Commons.Model;
-using Its.Onix.WebApi.Utils;
-using Newtonsoft.Json;
 
 namespace Its.Onix.WebApi.Controllers.Masters
 {
-    public class GetMasterInfoControllerTest : ControllerTestBase
+    public class GetMasterInfoControllerTest : GetInfoControllerTest
     {
         [SetUp]
         public void Setup()
@@ -22,22 +18,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
         {
             try
             {
-                SaveMasterController createCtrl = new SaveMasterController(Context);
-                FormSubmitParam prm = new FormSubmitParam();
-
-                BaseModel createdObj = (BaseModel) Activator.CreateInstance(createCtrl.ModelType);
-                TestUtils.PopulateDummyPropValues(createdObj, createCtrl.PkFieldName);
-                prm.JsonContent = JsonConvert.SerializeObject(createdObj, Formatting.Indented);
-                
-                JsonResult result = createCtrl.CreateWithParam(prm);
-                createdObj = (BaseModel) result.Value;
-                int newID = (int) TestUtils.GetPropertyValue(createdObj, createCtrl.PkFieldName);
-
-                GetMasterInfoController getInfoCtrl = new GetMasterInfoController(Context);
-                JsonResult getResult = getInfoCtrl.GetInfo(newID);
-                BaseModel returnObj = (BaseModel) getResult.Value;
-
-                Assert.IsNotNull(returnObj, "Expected not null result!!!");
+                GetInfoWithFoundTest(new SaveMasterController(Context), new GetMasterInfoController(Context));
             }
             catch (Exception e)
             {
@@ -48,24 +29,19 @@ namespace Its.Onix.WebApi.Controllers.Masters
         [TestCase(0)]
         [TestCase(-1)]
         [TestCase(999)]
+        [TestCase(100)]
         public void MasterDeleteWithNotFoundTest(int id)
         {
             try
             {
-                GetMasterInfoController getInfoCtrl = new GetMasterInfoController(Context);
-                JsonResult getResult = getInfoCtrl.GetInfo(id);
-                BaseModel returnObj = (BaseModel) getResult.Value;
+                BaseModel returnObj = GetInfoWithNotFoundTest(id, new GetMasterInfoController(Context));
 
                 //No data if id > 0 then should be null
                 Assert.IsNull(returnObj, "Expected null result!!!");
             }
             catch (Exception e)
             {
-                if (id > 0)
-                {
-                    //Exception should throw only when id <= 0
-                    Assert.Fail("No exception should be thrown even there is no data to get!!! [{0}]", e);
-                }
+                Assert.LessOrEqual(id, 0, "ID should be less than or equal zero when exception happened!!! [{0}]", e);
             }     
         } 
     }
