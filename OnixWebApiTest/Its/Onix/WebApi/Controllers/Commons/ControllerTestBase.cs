@@ -3,14 +3,6 @@ using Its.Onix.Erp.Databases;
 using Its.Onix.Core.Databases;
 using Its.Onix.Core.Factories;
 using Its.Onix.Erp.Services;
-/*
-using Its.Onix.Erp.Utils;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Hosting;
-using Its.Onix.WebApi.Testing;
-using Its.Onix.Core.Commons.Model;
-*/
 
 namespace Its.Onix.WebApi.Controllers.Commons
 {
@@ -26,18 +18,6 @@ namespace Its.Onix.WebApi.Controllers.Commons
             }
         }
         
-/*        
-        private IHostBuilder hostBuilder;
-        private IHost host;
-
-        protected IHost WebHost
-        {
-            get 
-            {
-                return host;
-            }
-        }
-*/
         public ControllerTestBase()
         {
         }
@@ -65,22 +45,5 @@ namespace Its.Onix.WebApi.Controllers.Commons
             FactoryBusinessOperation.SetDatabaseContext(ctx);
             return ctx;
         }
-/*
-        protected IHostBuilder CreateHostBuilderForTesting(string[] args)
-        {
-            IHostBuilder builder = Host.CreateDefaultBuilder();
-            builder.ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.AddConsole();
-                })
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<WebHostStatupForTesting>();
-                });
-
-            return builder;
-        }        
-*/        
     }
 }

@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Its.Onix.WebApi.Controllers.Masters
 {
-    public class MasterControllerTest : ControllerTestBase
+    public class GetMasterInfoControllerTest : ControllerTestBase
     {
         [SetUp]
         public void Setup()
@@ -18,7 +18,7 @@ namespace Its.Onix.WebApi.Controllers.Masters
         }
         
         [TestCase]
-        public void MasterDeleteWithFoundTest()
+        public void GetMasterWithFoundTest()
         {
             try
             {
@@ -33,9 +33,11 @@ namespace Its.Onix.WebApi.Controllers.Masters
                 createdObj = (BaseModel) result.Value;
                 int newID = (int) TestUtils.GetPropertyValue(createdObj, createCtrl.PkFieldName);
 
-                DeleteMasterController delCtrl = new DeleteMasterController(Context);
-                delCtrl.SetModel(createdObj);
-                delCtrl.Delete(-1); //Not use the ID 
+                GetMasterInfoController getInfoCtrl = new GetMasterInfoController(Context);
+                JsonResult getResult = getInfoCtrl.GetInfo(newID);
+                BaseModel returnObj = (BaseModel) getResult.Value;
+
+                Assert.IsNotNull(returnObj, "Expected not null result!!!");
             }
             catch (Exception e)
             {
@@ -50,14 +52,21 @@ namespace Its.Onix.WebApi.Controllers.Masters
         {
             try
             {
-                DeleteMasterController delCtrl = new DeleteMasterController(Context);
-                delCtrl.Delete(id);
-                Assert.Fail("Exception should be thrown due to no data to delete!!!");
+                GetMasterInfoController getInfoCtrl = new GetMasterInfoController(Context);
+                JsonResult getResult = getInfoCtrl.GetInfo(id);
+                BaseModel returnObj = (BaseModel) getResult.Value;
+
+                //No data if id > 0 then should be null
+                Assert.IsNull(returnObj, "Expected null result!!!");
             }
             catch (Exception e)
             {
-                Assert.Pass(e.Message);
+                if (id > 0)
+                {
+                    //Exception should throw only when id <= 0
+                    Assert.Fail("No exception should be thrown even there is no data to get!!! [{0}]", e);
+                }
             }     
-        }        
+        } 
     }
 }
