@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="OnixBusinessErp" Version="1.0.21" />
     <ProjectReference Include="..\OnixWebApi\OnixWebApi.csproj" />
+    <PackageReference Include="Moq" Version="4.12.0" />
   </ItemGroup>
 
 </Project>
