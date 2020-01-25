@@ -46,6 +46,7 @@ namespace Its.Onix.WebApi.Controllers.Commons
             {
                 content = prm.JsonContent;
             }
+
             BaseModel m = GetModel(id, content);
             var response = opr.Apply(m);
             var result = new JsonResult(response);

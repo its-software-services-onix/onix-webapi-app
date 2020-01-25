@@ -19,9 +19,9 @@ namespace Its.Onix.WebApi.Controllers.Commons
             var opr = (ManipulationOperation) FactoryBusinessOperation.CreateBusinessOperationObject(ApiName);
 
             BaseModel m = GetModel(id, "");
-            var response = opr.Apply(m);
+            BaseModel response = opr.Apply(m);
             var result = new JsonResult(response);
-
+            
             return result;
         }
     }   
