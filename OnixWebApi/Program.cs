@@ -7,6 +7,8 @@ namespace Its.Onix.WebApi
 {
     public static class Program
     {
+        private static Type startUpClass = typeof(Startup);
+
         private static int portNum = 5001;
         private static string listenUrl = "http://{0}:{1}";
 
@@ -18,11 +20,20 @@ namespace Its.Onix.WebApi
                 portNum = Int32.Parse(port);
             }
 
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args, startUpClass).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        public static Type StartupClass
+        {
+            set 
+            {
+                startUpClass = value;
+            }
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args, Type startUpClass)
+        {
+            IHostBuilder host = Host.CreateDefaultBuilder(args)
                 .ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
@@ -30,8 +41,11 @@ namespace Its.Onix.WebApi
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup(startUpClass);
                     webBuilder.UseUrls(String.Format(listenUrl, "0.0.0.0", portNum));
                 });
+
+            return host;                
+        }
     }
 }

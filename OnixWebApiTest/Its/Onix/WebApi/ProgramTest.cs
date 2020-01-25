@@ -1,11 +1,10 @@
-using System;
 using NUnit.Framework;
-using Its.Onix.WebApi.Controllers.Commons;
+using Moq;
 
 namespace Its.Onix.WebApi
 {
     public class ProgramTest
-    {
+    {        
         public ProgramTest()
         {
         }
@@ -13,7 +12,9 @@ namespace Its.Onix.WebApi
         [TestCase]
         public void ProgramRunningTest()
         {
-            Program.CreateHostBuilder(null);
+            //Program.StartupClass = typeof(StartupMocked);
+            //Program.Main(null);
+            Program.CreateHostBuilder(null, typeof(StartupMocked));
         }     
     }
 }

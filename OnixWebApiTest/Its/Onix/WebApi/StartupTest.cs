@@ -17,6 +17,9 @@ namespace Its.Onix.WebApi
             IConfiguration config = new Mock<IConfiguration>().Object;
             Startup startup = new Startup(config);
 
+            //ApplicationBuilderMocked appBuilder = new Mock<ApplicationBuilderMocked>().Object;
+            //startup.Configure(appBuilder, null);
+
             Assert.AreEqual(config, startup.Configuration);
         }     
     }
